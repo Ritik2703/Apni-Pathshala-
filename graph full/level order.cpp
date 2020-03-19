@@ -14,7 +14,7 @@ vector<vector<int> > Solution::levelOrder(TreeNode* A) {
     return ret;
 }
 
-// using queue 
+// using queue ..
 
  void build(TreeNode* root,vector<vector<int>> &ret,int depth){
      if(!root) return;
