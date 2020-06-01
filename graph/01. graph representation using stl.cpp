@@ -21,7 +21,7 @@ class graph{
 		
 		void printgraph(vector<int> g[],int V)
 		{
-		 cout<<"list represntation of unweighted graph is\n";	
+		 cout<<"list represntation of  unweighted graph is\n";	
 			for(int i=0;i<V;i++)
 			{
 				cout<<"Node "<<i<<" makes edge with node "<<endl;
