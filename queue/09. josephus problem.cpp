@@ -41,7 +41,7 @@ int main()
 	ptr->next= ptr->next->next;
    }
    cout<<ptr->d<<endl;
-   cout<<jos(n,k);
+   cout<< jos(n,k);
    
    
 
