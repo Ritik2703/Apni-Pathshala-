@@ -23,7 +23,7 @@ void enqueue(int data) {
     push(data);
 }
 int dequeue() {
-    if(top == 0) return pop();
+    if(top == 0)  return pop();
     int data = pop();
     int value = dequeue();
     push(data);
