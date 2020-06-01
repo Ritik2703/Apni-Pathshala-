@@ -1,41 +1,35 @@
+/*
+     hare krishna hare krishna krishna krishna hare hare
+     hare rama hare rama rama rama hare
+*/
 #include<bits/stdc++.h>
 using namespace std;
-
-class ll{
+class node{           // idea bnalo
 	public:
-	int data;
-	ll *next;
+		int data;
+		node* next;
+		node(int n)
+		{
+			data=n;
+			next=NULL;
+		}
 };
-
-void printlist(ll* n)
-{
-	while(n!=NULL)
-	{
-		cout<< n->data <<" ";
-		n = n->next;
-	}
-}
-
-
 int main()
 {
-
-	ll *head = NULL;
-	ll *second = new ll();
-	ll *third = new ll();
-	head=new ll();
-	head->data=1;
-	head->next=second;
+	int val;
+	cin>>val;
+	node *p=new node(val);   //declare kro or memory do fir value dalvo do..
+    cin>>val;
+    node *q= new node(val);
+    p->next=q;
+    while(p!=NULL)
+    {
 	
-	second->data=2;
-	second->next=third;
-	
-	third->data=3;
-	third->next= NULL;
-	
-	printlist(head);
-	
-	
-	
-	return 0;
+    cout<<"data of node is "<<p->data<<" ";
+    p=p->next;
 }
+   
+
+   return 0;
+}
+

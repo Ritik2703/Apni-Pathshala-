@@ -1,84 +1,90 @@
+/*
+     hare krishna hare krishna krishna krishna hare hare
+     hare rama hare rama rama rama hare
+*/
 #include<bits/stdc++.h>
 using namespace std;
-
-class ll{
+int val;
+class node{           // idea bnalo
 	public:
 		int data;
-		ll *next;
+		node* next;
+		node(int n)
+		{
+			data=n;
+			next=NULL;
+		}
 };
-void push(ll **poh,int new_data)
+node * createll(node *start)
 {
-	ll *n= new ll();
-	n->data=new_data;
-	n->next= *(poh);
-	*(poh)=n;
-}
-
-void insertafter(ll *pn,int new_data)
-{
-	if(pn == NULL)
-	{
-		cout<<"the given node can't be Null"<<endl;
-		return;
-	}
-	ll *n= new ll();
-	n->data= new_data;
-	n->next= pn->next;
-	pn->next= n;
-}
-
-void append(ll **poh,int new_data)
-{
-	ll *n= new ll();
 	
-	ll *last= *poh;
-	n->data=new_data;
-	n->next=NULL;
-	if(*poh == NULL)
+	cout<<"enter number to be add in linked list\n";
+	cout<<"enter -1 to end insertion in list\n";
+	cin>>val;
+	node *p;
+	while(val!=-1)
 	{
-		*poh = n;
-		return;
+		node *n= new node(val);
+		if(start==NULL)
+		start=n;
+		else
+		{
+			p=start;
+			while(p->next!=NULL)
+			{
+				p=p->next;
+			}
+			p->next=n;
+		}
+		cin>>val;		
 	}
-	while(last->next!=NULL)
-	last=last->next;
-	
-	last->next= n;
-	return;
+	return start;
+}
+void display(node *s)
+{
+	node *p=s;
+	cout<<"linked list is ";
+	while(p!=NULL)
+	{
+		cout<<p->data<<" -> ";
+		p=p->next;
+	}
+	cout<<"NULL\n";
 	
 }
-
-
-void printlist(ll* n)
+node *insertbeg(node *start)
 {
-	while(n!=NULL)
+	cin>>val;
+	node *n= new node(val);
+	n->next=start;
+	
+	start=n;
+	return start;
+}
+node *insertend(node *start)
+{
+	cin>>val;
+	node *n=new node(val);
+	node *p=start;
+	while(p->next!=NULL)
 	{
-		cout<<n->data<<" ";
-		n=n->next;
+		p=p->next;
 	}
+	p->next=n;
+	return start;
 }
 int main()
 {
-	ll *head = NULL;
-	
-	cout<<" how many nodes to be pushed"<<endl;
-	int a,x;
-	cin>>a;
-	for(int i=0;i<a;i++)
-	{
-		cin>>x;
-		push(&head,x);
-	}
-	cout<<" node to be pushed at end"<<endl;
-	cin>>x;
-	append(&head,x);
-	
-	cout<<" node to be pushed after"<<endl;
-	cin>>x;
-	insertafter(head->next,x);
-	
-	printlist(head);
-	
-	
-	
-	return 0;
+	node *start=NULL;
+	cout<<"create linked list \n";
+	start = createll(start);
+	 
+	display(start);
+	cout<<"insert node at beginning\nenter value to insert\n";
+	start= insertbeg(start);
+	display(start);
+	cout<<"insert node at end\nenter value to insert\n";
+	start=insertend(start);
+	display(start);
+   return 0;
 }
