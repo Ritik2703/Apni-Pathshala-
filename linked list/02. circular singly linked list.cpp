@@ -132,7 +132,7 @@ node *display(node* start)
 		cout<<t->data<<" -> ";
 		t=t->next;
 	}
-	cout<<t->data<<" -> NULL\n";
+	cout<<t->data<<"\n";
 	return start;
 }
 
