@@ -49,44 +49,30 @@ void display(ll *start)
 	}
 	cout<<"NULL\n";
 }
-
-ll *iterativereverse(ll *start)
+void nthfromend(ll *start,int n)
 {
-    ll *curr=start;
-    ll *prev=NULL,*next=NULL;
-    while(curr!=NULL)
+	ll *p=start,*q=start;
+	int c=1;
+	while(c!=n)
     {
-    	next=curr->next;
-    	curr->next=prev;
-    	prev=curr;
-    	curr=next;
-	}
-	start=prev;
-	return start;
-}
-ll *recursivereverse(ll *start)
+	p=p->next;
+	c++;
+    }	
+while(p->next!=NULL)
 {
-	if(start==NULL||start->next==NULL)
-	return start;
-	
-	ll* r= recursivereverse(start->next);
-	start->next->next=start;
-	
-	start->next=NULL;
-	
-	return r;
+	q=q->next;
+	p=p->next;
 }
-
+cout<<q->data;
+}
 int main()
 {
    ll *start= NULL;
    start=createll(start);
    display(start);
-   start= iterativereverse(start);
-   display(start);
-   start = recursivereverse(start);
-   display(start);
-
+   cout<<"enter the nth node from end\n";
+   cin>>num;
+   nthfromend(start,num);
+   
    return 0;
 }
-

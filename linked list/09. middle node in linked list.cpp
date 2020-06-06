@@ -49,44 +49,24 @@ void display(ll *start)
 	}
 	cout<<"NULL\n";
 }
-
-ll *iterativereverse(ll *start)
+void middlenode(ll *start)
 {
-    ll *curr=start;
-    ll *prev=NULL,*next=NULL;
-    while(curr!=NULL)
-    {
-    	next=curr->next;
-    	curr->next=prev;
-    	prev=curr;
-    	curr=next;
+	ll *p=start,*q=start;
+	while(p!=NULL&&p->next!=NULL)
+	{
+		q=q->next;
+		p=p->next->next;
 	}
-	start=prev;
-	return start;
-}
-ll *recursivereverse(ll *start)
-{
-	if(start==NULL||start->next==NULL)
-	return start;
-	
-	ll* r= recursivereverse(start->next);
-	start->next->next=start;
-	
-	start->next=NULL;
-	
-	return r;
-}
+	cout<<q->data;
 
+}
 int main()
 {
    ll *start= NULL;
    start=createll(start);
    display(start);
-   start= iterativereverse(start);
-   display(start);
-   start = recursivereverse(start);
-   display(start);
-
+   cout<<"middle node in linked list is ";
+   middlenode(start);
+   
    return 0;
 }
-
